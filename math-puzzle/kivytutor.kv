@@ -11,6 +11,46 @@
                     text: "Settings"
                     on_press: app.open_settings()
 
-    Label:
-        text: "Welcome to math-puzzle"
-        
+    ScreenManager:
+        id: kivy_screen_manger
+        StartScreen:
+            name: "start_screen"
+
+
+<StartScreen@Screen>:
+    BoxLayout:
+        # Settingsf
+        orientation: "vertical"
+        padding: root.width * .02, root.height * .02
+        spacing: min(root.width, root.height) * .02
+
+        Label:
+            text: "[b]Kivy Math Tutor[/b]"
+            markup: True
+            font_size:40
+            font_name:"Comic"
+
+        Button:
+            text: "Addition + "
+            font_size:30
+            font_name:"Comic"
+        Button:
+            text: "Subtraction - "
+            font_size:30
+            font_name:"Comic"
+        Button:
+            text: "Multiplication * "
+            font_size:30
+            font_name:"Comic"
+        Button:
+            text: "Division / "
+            font_size:30
+            font_name:"Comic"
+        Button:
+            text: "Mix! + - * / "
+            font_size:30
+            font_name:"Comic"
+        Button:
+            text: "About this App "
+            font_size:30
+            font_name:"Comic"
