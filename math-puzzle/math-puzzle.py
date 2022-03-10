@@ -6,8 +6,10 @@ import random
 
 from kivy.app import App
 from kivy.core.window import Window
+from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
+from kivy.uix.gridlayout import GridLayout
 from kivy.properties import ObjectProperty
 
 from arithmetric import Arithmetic
@@ -83,11 +85,47 @@ class MathScreen(Screen, Arithmetic):
         super(MathScreen, self).__init__(*args, **kwargs)
 
 ###############################################################################
+class KeyPad(GridLayout):
+
+    def __init__(self, *args,**kwargs):
+        super(KeyPad, self).__init__(*args, **kwargs)
+        self.cols = 3
+        self.spacing = 10
+        self.createButtons()
+
+    def createButtons(self):
+        button_lst = [7, 8, 9, 4, 5, 6, 1, 2, 3, "", 0, "Answer"]
+        for button in button_lst:
+            self.add_widget(Button(text=str(button), on_release=self.onBtnPress))
+
+    def onBtnPress(self, btn):
+        math_screen = App.get_running_app().root.ids.math_screen
+        answer_text = math_screen.answer_text
+
+        if btn.text.isdigit():
+            answer_text.text += btn.text
+            
+        if btn.text == "Answer" and answer_text.text != "":
+            answer = math_screen.get_answer()
+            root = App.get_running_app().root
+            if int(answer_text.text) == answer:
+                print("WOOW")
+            else:
+                print("Noooo")
+
+            answer_text.text = ""
+
+            question = math_screen.question_text
+            question.text = root.prepQuestion(
+                math_screen.get_next_question(True if root.is_mix else False)
+            )
+
+###############################################################################
 
 class KivyTutorApp(App):
     """App object
-
     """
+
     def __init__(self, **kwargs):
         super(KivyTutorApp, self).__init__(**kwargs)
         Window.bind(on_keyboard=self.onBackBtn)
