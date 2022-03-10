@@ -149,9 +149,9 @@ class KeyPad(GridLayout):
             answer = math_screen.get_answer()
             root = App.get_running_app().root
             if int(answer_text.text) == answer:
-                print("WOOW")
+                root.math_popup.open(True)
             else:
-                print("Noooo")
+                root.math_popup.open(False)
 
             answer_text.text = ""
 
