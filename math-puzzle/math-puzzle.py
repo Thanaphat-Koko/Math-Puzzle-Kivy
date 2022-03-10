@@ -2,9 +2,10 @@ from __future__ import division, absolute_import
 from __future__ import print_function, unicode_literals
 
 import webbrowser
+import random
 
-from kivy.core.window import Window
 from kivy.app import App
+from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
@@ -14,15 +15,17 @@ from arithmetric import Arithmetic
 
 ################################################################################
 
-class KivyTutorRoot(BoxLayout):
+class MathPuzzleRoot(BoxLayout):
     """Root of all widgets
     """
     math_screen = ObjectProperty(None)
+    
     def __init__(self, **kwargs):
-        super(KivyTutorRoot, self).__init__(**kwargs)
-        
+        super(MathPuzzleRoot, self).__init__(**kwargs) 
          # List of previous screens
         self.screen_list = []
+        self.is_mix = False
+
     def changeScreen(self, next_screen):
         operations = "addition subtraction multiplication division".split()
         question = None
@@ -35,11 +38,33 @@ class KivyTutorRoot(BoxLayout):
             self.ids.kivy_screen_manager.current = "about_screen"
 
         else:
-            self.math_screen.question_text.text = next_screen
+            if next_screen == "mix!":
+                self.is_mix = True
+                index = random.randint(0, len(operations) - 1)
+                next_screen = operations[index]
+            else:
+                self.is_mix = False
+            for operation in operations:
+                if next_screen == operation:
+                    question = f"self.math_screen.get_{operation}_question()"
+            self.math_screen.question_text.text = MathPuzzleRoot.prepQuestion(
+                eval(question) if question is not None else None
+            )
             self.ids.kivy_screen_manager.current = "math_screen"
 
+    @staticmethod
+    def prepQuestion(question):
+        " Prepares a math question with markup "
+        if question is None:
+            return "ERROR"
+        text_list = question.split()
+        text_list.insert(2, "[b]")
+        text_list.insert(len(text_list), "[/b]")
+        return " ".join(text_list)
+    
+
     def onBackBtn(self):
-        # Check if there are any scresn to go back to
+        # Check if there are any screen to go back to
         if self.screen_list:
             # if there are screens we can go back to, the just do it
             self.ids.kivy_screen_manager.current = self.screen_list.pop()
@@ -49,15 +74,16 @@ class KivyTutorRoot(BoxLayout):
         return False
 
 ###############################################################################
+
 class MathScreen(Screen, Arithmetic):
     """Widget that will arc as a screen and hold funcs for math questions
     
-    """
-        
-    
+    """  
     def __init__(self, *args, **kwargs):
         super(MathScreen, self).__init__(*args, **kwargs)
+
 ###############################################################################
+
 class KivyTutorApp(App):
     """App object
 
@@ -73,7 +99,7 @@ class KivyTutorApp(App):
 
 
     def build(self):
-        return KivyTutorRoot()
+        return MathPuzzleRoot()
 
     def getText(self):
         return ("Hello world!\n"
