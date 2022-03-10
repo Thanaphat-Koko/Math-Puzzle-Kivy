@@ -1,15 +1,27 @@
+from __future__ import division, absolute_import
+from __future__ import print_function, unicode_literals
+
 from kivy.app import App
-from kivy.uix.label import Label
+from kivy.uix.boxlayout import BoxLayout
 
 
-class MathScreen:
-    pass
+################################################################################
+class KivyTutorRoot(BoxLayout):
+    """Root of all widgets
+    """
+    def __init__(self, **kwargs):
+        super(KivyTutorRoot, self).__init__(**kwargs)
 
-class MathPuzzleApp(App):
+
+################################################################################
+class KivyTutorApp(App):
+    """App object
+    """
+    def __init__(self, **kwargs):
+        super(KivyTutorApp, self).__init__(**kwargs)
+
     def build(self):
-        return Label(text="Hello,\n Welcome to MathPuzzle First Build!", font_size=50)
+        return KivyTutorRoot()
 
-
-if __name__ == "__main__":
-    app = MathPuzzleApp()
-    app.run()
+if __name__ == '__main__':
+    KivyTutorApp().run()
