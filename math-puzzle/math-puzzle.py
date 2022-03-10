@@ -94,7 +94,7 @@ class KivyTutorApp(App):
 
     def onBackBtn(self, window, key, *args):
         # user presses back button
-        if key == 27:
+        if key == 32:
             return self.root.onBackBtn()
 
 
