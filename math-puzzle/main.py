@@ -6,6 +6,10 @@ import webbrowser
 from kivy.core.window import Window
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import Screen
+from kivy.properties import ObjectProperty
+
+from arithmetric import Arithmetic
 
 
 ################################################################################
@@ -13,6 +17,7 @@ from kivy.uix.boxlayout import BoxLayout
 class KivyTutorRoot(BoxLayout):
     """Root of all widgets
     """
+    math_screen = ObjectProperty(None)
     def __init__(self, **kwargs):
         super(KivyTutorRoot, self).__init__(**kwargs)
         
@@ -29,6 +34,10 @@ class KivyTutorRoot(BoxLayout):
         if next_screen == "about this game":
             self.ids.kivy_screen_manager.current = "about_screen"
 
+        else:
+            self.math_screen.question_text.text = next_screen
+            self.ids.kivy_screen_manager.current = "math_screen"
+
     def onBackBtn(self):
         # Check if there are any scresn to go back to
         if self.screen_list:
@@ -38,8 +47,17 @@ class KivyTutorRoot(BoxLayout):
             return True
         # No more screens to go back to
         return False
-################################################################################
 
+###############################################################################
+class MathScreen(Screen, Arithmetic):
+    """Widget that will arc as a screen and hold funcs for math questions
+    
+    """
+        
+    
+    def __init__(self, *args, **kwargs):
+        super(MathScreen, self).__init__(*args, **kwargs)
+###############################################################################
 class KivyTutorApp(App):
     """App object
 
