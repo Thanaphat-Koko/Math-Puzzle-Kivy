@@ -6,6 +6,8 @@ import random
 
 from kivy.app import App
 from kivy.core.window import Window
+from kivy.clock import Clock
+from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
@@ -27,6 +29,7 @@ class MathPuzzleRoot(BoxLayout):
          # List of previous screens
         self.screen_list = []
         self.is_mix = False
+        self.math_popup = MathPopup()
 
     def changeScreen(self, next_screen):
         operations = "addition subtraction multiplication division".split()
@@ -83,6 +86,43 @@ class MathScreen(Screen, Arithmetic):
     """  
     def __init__(self, *args, **kwargs):
         super(MathScreen, self).__init__(*args, **kwargs)
+
+###############################################################################
+class MathPopup(Popup):
+    GOOD = "{} :D"
+    BAD = "{}, Correct answer is [b]{}[/b]"
+    GOOD_LIST = "Awesome! Amazing! Excellent! Correct!".split()
+    BAD_LIST = ["Almost!", "Close!", "Sorry", "Don't Worry"]
+
+    message = ObjectProperty()
+    wrapped_button = ObjectProperty()
+
+    def __init__(self, *args, **kwargs):
+        super(MathPopup, self).__init__(*args, **kwargs)
+    
+    def open(self, correct=True):
+        if correct:
+            if self.wrapped_button in self.content.children:
+                self.content.remove_widget(self.wrapped_button)
+        else:
+            if self.wrapped_button not in self.content.children:
+                self.content.add_widget(self.wrapped_button)
+
+        self.message.text = self._prep_text(correct)
+
+        super(MathPopup, self).open()
+        if correct:
+            Clock.schedule_once(self.dismiss, 1)
+
+    def _prep_text(self, correct):
+        if correct:
+            index = random.randint(0, len(self.GOOD_LIST) - 1)
+            return self.GOOD.format(self.GOOD_LIST[index])
+        else:
+            index = random.randint(0, len(self.BAD_LIST) - 1)
+            math_screen = App.get_running_app().root.math_screen
+            answer = math_screen.get_answer()
+            return self.BAD.format(self.BAD_LIST[index], answer)
 
 ###############################################################################
 class KeyPad(GridLayout):
