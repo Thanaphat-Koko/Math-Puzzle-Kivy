@@ -3,7 +3,6 @@
     height: self.texture_size[1] + (self.texture_size[1]/2)
     markup: True
 
-
 <KivyTutorRoot>:
     orientation: "vertical"
 
@@ -13,10 +12,15 @@
                 title: ""
                 with_previous: False
 
+
     ScreenManager:
         id: kivy_screen_manager
         StartScreen:
             name: "start_screen"
+        AboutScreen:
+            id: about_screen
+            name: "about_screen"
+
 
 
 <StartScreen@Screen>:
@@ -28,34 +32,21 @@
 
         WrappedLabel:
             text: "[b]Kivy Math Tutor[/b]"
-            markup: True
             font_size: min(root.height, root.width) / 10
-            font_name:"Comic"
+        Button:
+            text: "Addition"
+        Button:
+            text: "Subtraction"
+        Button:
+            text: "Multiplication"
+        Button:
+            text: "Division"
+        Button:
+            text: "Mix!"
+        Button:
+            text: "About this Game"
+            on_release: app.root.changeScreen(self.text.lower())
 
-        Button:
-            text: "Addition + "
-            font_size:30
-            font_name:"Comic"
-        Button:
-            text: "Subtraction - "
-            font_size:30
-            font_name:"Comic"
-        Button:
-            text: "Multiplication * "
-            font_size:30
-            font_name:"Comic"
-        Button:
-            text: "Division / "
-            font_size:30
-            font_name:"Comic"
-        Button:
-            text: "Mix! + - * / "
-            font_size:30
-            font_name:"Comic"
-        Button:
-            text: "About this App "
-            font_size:30
-            font_name:"Comic"
 
 <AboutScreen@Screen>:
     BoxLayout:
