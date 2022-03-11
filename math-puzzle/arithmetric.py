@@ -5,7 +5,7 @@ class Arithmetic(object):
     """
     Used for Addition, Subtraction, Multiplication and Division Questions
     """
-    def __init__(self, min_num=0, max_num=10):
+    def __init__(self, min_num=0, max_num=24):
         """
         :param min_num: Minimum number to start with.
         :param max_num: Maximum number to start with.
@@ -15,7 +15,7 @@ class Arithmetic(object):
         self.operation = None
         self.num_one = None
         self.num_two = None
-        self.QUESTION = "What is {} {} {}?"
+        self.QUESTION = "What is {} {} {} = ?"
 
     def prep_rand_num(self):
         """
