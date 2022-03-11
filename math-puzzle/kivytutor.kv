@@ -6,10 +6,10 @@
     size_hint_y: None
     height: self.texture_size[1] + (self.texture_size[1]/2)
     markup: True
-    font_name: "Roboto"
+    font_name: "Comic"
 
 <Button>:
-    font_name: "Roboto"
+    font_name: "Comic"
     font_size: min(self.height, self.width) / 4
     bold: True
     background_normal: "./images/button_normal.png"
@@ -57,24 +57,31 @@
         WrappedLabel:
             text: "[b]Kivy Math Tutor[/b]"
             font_size: min(root.height, root.width) / 10
+            font_name:"Comic"
         Button:
             text: "Addition"
+            font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
         Button:
             text: "Subtraction"
+            font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
         Button:
             text: "Multiplication"
+            font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
         Button:
             text: "Division"
+            font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
         Button:
             text: "Mix!"
+            font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
             background_color: COLOR(GREEN)
         Button:
             text: "About this Game"
+            font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
             background_color: COLOR(RED)
 <MathScreen>:
@@ -87,6 +94,7 @@
         WrappedLabel:
             id: question_text
             text: "some dummy text"
+            font_name:"Comic"
             font_size: min(root.height, root.width) / 10
         BoxLayout:
             orientation: "horizontal"
@@ -94,10 +102,12 @@
             WrappedLabel:
                 id: answer_text
                 text: ""
+                font_name:"Comic"
                 font_size: min(root.height, root.width) / 10
             Button:
                 id: clearn_btn
                 text: "[b]Clear[/b]"
+                font_name:"Comic"
                 background_color: COLOR(RED)
                 markup: True
                 size_hint: .3, None
@@ -108,6 +118,7 @@
 <MathPopup>:
     size_hint: .8, .8
     title: "Result"
+    font_name:"Comic"
     title_size: root.height * .05
     seperator_color: COLOR(GREEN)
     auto_dissmiss: False
@@ -122,12 +133,14 @@
             text: "0301"
             halign: "center"
             markup: True
+            font_name:"Comic"
             font_size: root.height / 10
             text_size: self.width, None
             center_y: .5
         Button:
             id: wrapped_button
             text: "Close"
+            font_name:"Comic"
             size_hint: 1, None
             height: root.height / 8
             on_release: root.dismiss()
@@ -137,6 +150,7 @@
         padding: root.width * .02, root.height * .02
         Label:
             text: app.getText()
+            font_name:"Comic"
             halign: "center"
             markup: True
             font_size: root.height / 20
