@@ -17,7 +17,6 @@ from kivy.properties import ObjectProperty
 from kivy.utils import get_color_from_hex
 
 from arithmetric import Arithmetic
-from json_settings import json_settings
 
 # Color the background
 Window.clearcolor = get_color_from_hex("#16203B")
@@ -28,8 +27,6 @@ LabelBase.register(
     fn_regular="./fonts/Roboto-Thin.ttf",
     fn_bold="./fonts/Roboto-Medium.ttf"
 )
-
-
 
 ################################################################################
 
@@ -193,12 +190,13 @@ class KivyTutorApp(App):
 
 
     def build(self):
+        self.icon = "./images/testlogo.png"
         return MathPuzzleRoot()
 
     def getText(self):
-        return ("Hello world!\n"
+        return ("\nHello world!\n"
                 "This is Math-puzzle project of 03-01\n"
-                "\nKamolchanok  Chuchuen      6410110005\n"
+                "\nKamolchanok  Chuchuen    6410110005\n"
                 "Thanaphat   Pethdongjan    6410110207\n"
                 "Thanawan   Saechiang       6410110210\n"
                 "Nureeyah   Hayichesoh      6410110280\n"
@@ -213,20 +211,6 @@ class KivyTutorApp(App):
         }
 
         webbrowser.open(_dict[ref])
-
-    def build_config(self, config):
-        config.setdefaults("General", {"lower_num": 0, "upper_num": 10})
-
-    def build_settings(self, settings):
-        settings.add_json_panel("Kivy Math Tutor", self.config,
-                                data=json_settings)
-
-    def on_config_change(self, config, section, key, value):
-        if key == "upper_num":
-            self.root.math_screen.max_num = int(value)
-        elif key == "lower_num":
-            self.root.math_screen.min_num = int(value)
-
 
 if __name__ == '__main__':
     KivyTutorApp().run()
