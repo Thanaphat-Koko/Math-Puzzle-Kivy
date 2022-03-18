@@ -59,7 +59,7 @@ class Arithmetic(object):
         :return: A division question.
         """
         self.prep_rand_num()
-        self.operation = "%"
+        self.operation = "÷"
 
         while self.num_two == 0 or self.num_one % self.num_two != 0:
             self.prep_rand_num()
@@ -71,13 +71,13 @@ class Arithmetic(object):
         :return: Next math question depending on the current operation.
         """
         if rand:
-            _list = "+ - x %".split()
+            _list = "+ - x ÷".split()
             self.operation = _list[random.randint(0, len(_list) - 1)]
         _dict = {
             "+": self.get_addition_question,
             "-": self.get_subtraction_question,
             "x": self.get_multiplication_question,
-            "%": self.get_division_question
+            "÷": self.get_division_question
         }
         return _dict[self.operation]()
 
@@ -92,4 +92,8 @@ class Arithmetic(object):
         elif self.operation == "x":
             return self.num_one * self.num_two
         else:
+            if self.num_two == 0:
+                return "Divided by Zero"
+            elif self.num_one % self.num_two != 0:
+                return "Error"
             return self.num_one / self.num_two

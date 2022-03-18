@@ -103,8 +103,8 @@ class MathScreen(Screen, Arithmetic):
 class MathPopup(Popup):
     GOOD = "{} :D"
     BAD = "{}, Correct answer is [b]{}[/b]"
-    GOOD_LIST = ["Awesome!", "Amazing!", "Excellent!", "Correct!", "Genius!", "Pung mai wai!"]
-    BAD_LIST = ["Almost!", "Close!", "Sorry", "Don't Worry"]
+    GOOD_LIST = ["Awesome!", "Amazing!", "Excellent!", "Correct!", "Genius!", "Pang mai wai!"]
+    BAD_LIST = ["Almost!", "Close!", "Sorry", "Don't Worry", "On Doi Arr~"]
 
     message = ObjectProperty()
     wrapped_button = ObjectProperty()
