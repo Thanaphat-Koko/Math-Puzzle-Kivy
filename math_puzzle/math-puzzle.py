@@ -19,7 +19,7 @@ from kivy.utils import get_color_from_hex
 from arithmetric import Arithmetic
 
 # Color the background
-Window.clearcolor = get_color_from_hex("#16203B")
+Window.clearcolor = get_color_from_hex("#79addc")
 
 # Register fonts
 LabelBase.register(
@@ -103,7 +103,7 @@ class MathScreen(Screen, Arithmetic):
 class MathPopup(Popup):
     GOOD = "{} :D"
     BAD = "{}, Correct answer is [b]{}[/b]"
-    GOOD_LIST = "Awesome! Amazing! Excellent! Correct!".split()
+    GOOD_LIST = ["Awesome!", "Amazing!", "Excellent!", "Correct!", "Genius!", "Pung mai wai!"]
     BAD_LIST = ["Almost!", "Close!", "Sorry", "Don't Worry"]
 
     message = ObjectProperty()

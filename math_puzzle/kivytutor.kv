@@ -1,4 +1,6 @@
 #:import COLOR kivy.utils.get_color_from_hex
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
 #:set RED "#F94A69"
 #:set GREEN "#06A5AB"
 
@@ -61,35 +63,42 @@
             keep_ratio: True
             
         WrappedLabel:
-            text: "[b]Kivy Math Puzzle[/b]"
+            text: '[color=000000]Kivy Math Puzzle[/color]'
             font_size: min(root.height, root.width) / 10
             font_name:"Comic"
         Button:
             text: "Addition"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
+            background_color: COLOR("#4b0082")
         Button:
             text: "Subtraction"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
+            background_color: COLOR("#0000FF")
         Button:
             text: "Multiplication"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
+            background_color: COLOR("#008000")
         Button:
             text: "Division"
+            color: 0,0,0,1
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
+            background_color: COLOR("#ffff00")
         Button:
             text: "Mix!"
+            color: 0,0,0,1
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
-            background_color: COLOR(GREEN)
+            background_color: COLOR("#ffa500")
+            
         Button:
             text: "About this Game"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
-            background_color: COLOR(RED)
+            background_color: COLOR("#FF0000")
 <MathScreen>:
     question_text: question_text
     answer_text: answer_text
@@ -101,7 +110,7 @@
             id: question_text
             text: "some dummy text"
             font_name:"Comic"
-            font_size: min(root.height, root.width) / 10
+            font_size: min(root.height, root.width) / 10     
         BoxLayout:
             orientation: "horizontal"
             size_hint_y: None
@@ -114,7 +123,7 @@
                 id: clearn_btn
                 text: "[b]Clear[/b]"
                 font_name:"Comic"
-                background_color: COLOR(RED)
+                background_color: COLOR("#ff0000")
                 markup: True
                 size_hint: .3, None
                 height: question_text.texture_size[1]
@@ -126,10 +135,11 @@
     title: "Result"
     font_name:"Comic"
     title_size: root.height * .05
-    seperator_color: COLOR(GREEN)
+    seperator_color: COLOR(RED)
     auto_dissmiss: False
     message: message
     wrapped_button: wrapped_button
+    background_color: 0, 1, 3, 2.5
     BoxLayout:
         orientation: "vertical"
         padding: root.width * .02, root.height * .02
