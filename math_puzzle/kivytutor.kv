@@ -70,26 +70,30 @@
             text: "Addition"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
-            background_color: COLOR("#4b0082")
+            background_color: COLOR("#ee82ee")
         Button:
             text: "Subtraction"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
-            background_color: COLOR("#0000FF")
+            background_color: COLOR("#4b0082")
         Button:
             text: "Multiplication"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
-            background_color: COLOR("#008000")
+            background_color: COLOR("#0000ff")
         Button:
             text: "Division"
+            font_name:"Comic"
+            on_release: app.root.changeScreen(self.text.lower())
+            background_color: COLOR("#008000")
+        Button:
+            text: "Modulus"
             color: 0,0,0,1
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
-            background_color: COLOR("#ffff00")
+            background_color: COLOR("#ffff00")            
         Button:
             text: "Mix!"
-            color: 0,0,0,1
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
             background_color: COLOR("#ffa500")
@@ -98,7 +102,7 @@
             text: "About this Game"
             font_name:"Comic"
             on_release: app.root.changeScreen(self.text.lower())
-            background_color: COLOR("#FF0000")
+            background_color: COLOR("#ff0000")
 <MathScreen>:
     question_text: question_text
     answer_text: answer_text

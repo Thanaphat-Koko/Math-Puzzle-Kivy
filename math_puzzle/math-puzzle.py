@@ -44,7 +44,7 @@ class MathPuzzleRoot(BoxLayout):
         self.math_popup = MathPopup()
 
     def changeScreen(self, next_screen):
-        operations = "addition subtraction multiplication division".split()
+        operations = "addition subtraction multiplication division modulus".split()
         question = None
 
         # If screen is not already in the list fo prevous screens

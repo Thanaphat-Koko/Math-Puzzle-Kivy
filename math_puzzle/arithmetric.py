@@ -66,6 +66,18 @@ class Arithmetic(object):
 
         return self.QUESTION.format(self.num_one, self.operation, self.num_two)
 
+    def get_modulus_question(self):
+        """
+        :return: A division question.
+        """
+        self.prep_rand_num()
+        self.operation = "%"
+
+        while self.num_one < self.num_two or self.num_two == 0 :
+            self.prep_rand_num()
+
+        return self.QUESTION.format(self.num_one, self.operation, self.num_two)
+
     def get_next_question(self, rand=False):
         """
         :return: Next math question depending on the current operation.
@@ -77,7 +89,8 @@ class Arithmetic(object):
             "+": self.get_addition_question,
             "-": self.get_subtraction_question,
             "x": self.get_multiplication_question,
-            "÷": self.get_division_question
+            "÷": self.get_division_question,
+            "%": self.get_modulus_question
         }
         return _dict[self.operation]()
 
@@ -91,6 +104,8 @@ class Arithmetic(object):
             return self.num_one - self.num_two
         elif self.operation == "x":
             return self.num_one * self.num_two
+        elif self.operation == "%":
+            return self.num_one % self.num_two            
         else:
             if self.num_two == 0:
                 return "Divided by Zero"
