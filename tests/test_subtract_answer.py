@@ -64,3 +64,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = [5]
             self.assertIn(result, expected_output)
+
+    def test_19_subtract_16_is_3(self):
+            ari = Arithmetic()
+            ari.num_one = 19
+            ari.num_two = 16
+            ari.operation = "-"
+            result = ari.get_answer()
+            expected_output = 3
+            self.assertIs(result, expected_output)
