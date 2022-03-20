@@ -37,3 +37,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 4
             self.assertIs(result, expected_output)
+    
+    def test_20_subtract_12_is_8(self):
+            ari = Arithmetic()
+            ari.num_one = 20
+            ari.num_two = 12
+            ari.operation = "-"
+            result = ari.get_answer()
+            expected_output = [8]
+            self.assertIn(result, expected_output)
