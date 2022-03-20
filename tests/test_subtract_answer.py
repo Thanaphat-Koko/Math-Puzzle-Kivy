@@ -18,3 +18,13 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         ari.get_subtraction_question()
         result = ari.get_answer()
         self.assertLess(result, 25)
+
+    def test_24_subtract_24_is_0(self):
+            ari = Arithmetic()
+            ari.num_one = 24
+            ari.num_two = 24
+            ari.operation = "-"
+            result = ari.get_answer()
+            expected_output = 0
+            x = result == expected_output
+            self.assertTrue(x)
