@@ -55,3 +55,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 10
             self.assertEqual(result, expected_output)
+
+    def test_9_subtract_4_is_5(self):
+            ari = Arithmetic()
+            ari.num_one = 9
+            ari.num_two = 4
+            ari.operation = "-"
+            result = ari.get_answer()
+            expected_output = [5]
+            self.assertIn(result, expected_output)
