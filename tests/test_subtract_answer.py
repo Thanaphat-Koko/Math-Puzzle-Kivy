@@ -80,3 +80,10 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         result = ari.get_answer()
         expected_output=range(0,24)
         self.assertIn(result,expected_output )
+
+    def test_subtract_0_to_24_must_not_in_range_25_to_100(self):
+            ari = Arithmetic(min_num=0, max_num=24)
+            ari.get_subtraction_question()
+            result = ari.get_answer()
+            expected_output=range(25,100)
+            self.assertNotIn(result,expected_output )
