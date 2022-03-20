@@ -73,3 +73,10 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 3
             self.assertIs(result, expected_output)
+    
+    def test_subtract_0_to_24_must_in_range_0_to_24(self):
+        ari = Arithmetic(min_num=0, max_num=24)
+        ari.get_subtraction_question()
+        result = ari.get_answer()
+        expected_output=range(0,24)
+        self.assertIn(result,expected_output )
