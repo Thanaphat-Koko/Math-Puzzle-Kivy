@@ -12,3 +12,9 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 0
             self.assertEqual(result, expected_output)
+    
+    def test_subtract_in_range_0_to_24_must_less_than_25(self):
+        ari = Arithmetic(min_num=0, max_num=24)
+        ari.get_subtraction_question()
+        result = ari.get_answer()
+        self.assertLess(result, 25)
