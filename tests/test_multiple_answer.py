@@ -29,4 +29,11 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             ari.operation = "x"
             result = ari.get_answer()
             expected_output = [576]
-            self.assertIn(result, expected_output)              
+            self.assertIn(result, expected_output) 
+ 
+
+    def test_multiple_in_range_0_to_24_must_less_than_577(self):
+        ari = Arithmetic(min_num=0, max_num=24)
+        ari.get_multiplication_question()
+        result = ari.get_answer()
+        self.assertLess(result, 577)                           
