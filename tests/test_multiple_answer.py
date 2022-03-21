@@ -74,3 +74,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 144
             self.assertEqual(result, expected_output)          
+
+    def test_10_multiple_20_is_200(self):
+            ari = Arithmetic()
+            ari.num_one = 10
+            ari.num_two = 20
+            ari.operation = "x"
+            result = ari.get_answer()
+            expected_output = 200
+            self.assertEqual(result, expected_output)        
