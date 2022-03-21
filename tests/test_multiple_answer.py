@@ -20,4 +20,13 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             ari.operation = "x"
             result = ari.get_answer()
             expected_output = 0
-            self.assertIs(result, expected_output)        
+            self.assertIs(result, expected_output)  
+
+    def test_24_multiple_24_is_576(self):
+            ari = Arithmetic()
+            ari.num_one = 24
+            ari.num_two = 24
+            ari.operation = "x"
+            result = ari.get_answer()
+            expected_output = [576]
+            self.assertIn(result, expected_output)              
