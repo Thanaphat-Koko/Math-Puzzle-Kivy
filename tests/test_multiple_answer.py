@@ -47,3 +47,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             expected_output = 45
             x = result == expected_output
             self.assertTrue(x)    
+
+    def test_24_multiple_0_is_0(self):
+            ari = Arithmetic()
+            ari.num_one = 24
+            ari.num_two = 0
+            ari.operation = "x"
+            result = ari.get_answer()
+            expected_output = 0
+            self.assertEqual(result, expected_output)
