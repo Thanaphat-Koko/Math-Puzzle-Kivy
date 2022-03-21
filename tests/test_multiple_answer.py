@@ -83,16 +83,7 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 200
             self.assertEqual(result, expected_output)   
-
-    def test_5_multiple_24_is_120(self):
-            ari = Arithmetic()
-            ari.num_one = 5
-            ari.num_two = 24
-            ari.operation = "x"
-            result = ari.get_answer()
-            expected_output = 120
-            self.assertEqual(result, expected_output)             
-
+        
     def test_8_multiple_19_is_152(self):
             ari = Arithmetic()
             ari.num_one = 8
@@ -101,16 +92,7 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 152
             self.assertEqual(result, expected_output)     
-
-    def test_5_multiple_24_is_120(self):
-            ari = Arithmetic()
-            ari.num_one = 5
-            ari.num_two = 24
-            ari.operation = "x"
-            result = ari.get_answer()
-            expected_output = 120
-            self.assertEqual(result, expected_output)           
-
+        
     def test_8_multiple_9_is_72(self):
             ari = Arithmetic()
             ari.num_one = 8
@@ -119,3 +101,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 72
             self.assertEqual(result, expected_output)    
+
+    def test_5_multiple_24_is_120(self):
+            ari = Arithmetic()
+            ari.num_one = 5
+            ari.num_two = 24
+            ari.operation = "x"
+            result = ari.get_answer()
+            expected_output = 120
+            self.assertEqual(result, expected_output)        
