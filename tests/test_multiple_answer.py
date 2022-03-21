@@ -37,3 +37,13 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         ari.get_multiplication_question()
         result = ari.get_answer()
         self.assertLess(result, 577)                           
+
+    def test_15_multiple_3_is_45(self):
+            ari = Arithmetic()
+            ari.num_one = 15
+            ari.num_two = 3
+            ari.operation = "x"
+            result = ari.get_answer()
+            expected_output = 45
+            x = result == expected_output
+            self.assertTrue(x)    
