@@ -92,3 +92,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 120
             self.assertEqual(result, expected_output)             
+
+    def test_8_multiple_19_is_152(self):
+            ari = Arithmetic()
+            ari.num_one = 8
+            ari.num_two = 19
+            ari.operation = "x"
+            result = ari.get_answer()
+            expected_output = 152
+            self.assertEqual(result, expected_output)        
