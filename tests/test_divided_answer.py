@@ -48,3 +48,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 0
             self.assertEqual(result, expected_output)
+
+    def test_12_divided_by_12_is_1(self):
+            ari = Arithmetic()
+            ari.num_one = 12
+            ari.num_two = 12
+            ari.operation = "÷"
+            result = ari.get_answer()
+            expected_output = 1
+            self.assertEqual(result, expected_output)
