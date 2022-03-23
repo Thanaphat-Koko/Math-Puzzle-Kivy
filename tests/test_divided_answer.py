@@ -12,3 +12,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 1
             self.assertEqual(result, expected_output)
+
+    def test_0_divided_by_0_is_Divided_by_Zero(self):
+            ari = Arithmetic()
+            ari.num_one = 0
+            ari.num_two = 0
+            ari.operation = "÷"
+            result = ari.get_answer()
+            expected_output = "Divided by Zero"
+            self.assertEqual(result, expected_output)
