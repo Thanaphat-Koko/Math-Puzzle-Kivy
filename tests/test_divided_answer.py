@@ -75,3 +75,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 3
             self.assertEqual(result, expected_output)
+
+    def test_16_divided_by_8_is_2(self):
+            ari = Arithmetic()
+            ari.num_one = 16
+            ari.num_two = 8
+            ari.operation = "÷"
+            result = ari.get_answer()
+            expected_output = 2
+            self.assertEqual(result, expected_output)
