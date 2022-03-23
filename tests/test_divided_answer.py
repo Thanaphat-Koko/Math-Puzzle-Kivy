@@ -84,3 +84,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 2
             self.assertEqual(result, expected_output)
+
+    def test_15_divided_by_5_is_3(self):
+            ari = Arithmetic()
+            ari.num_one = 15
+            ari.num_two = 5
+            ari.operation = "÷"
+            result = ari.get_answer()
+            expected_output = 3
+            self.assertEqual(result, expected_output)
