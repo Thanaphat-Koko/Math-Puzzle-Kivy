@@ -66,3 +66,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = "Error"
             self.assertEqual(result, expected_output)
+
+    def test_24_divided_by_8_is_3(self):
+            ari = Arithmetic()
+            ari.num_one = 24
+            ari.num_two = 8
+            ari.operation = "÷"
+            result = ari.get_answer()
+            expected_output = 3
+            self.assertEqual(result, expected_output)
