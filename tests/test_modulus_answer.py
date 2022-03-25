@@ -21,3 +21,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         result = ari.get_answer()
         expected_output = 1
         self.assertEqual(result, expected_output)
+    
+    def test_15_modulus_15_is_0(self):
+        ari = Arithmetic()
+        ari.num_one = 15
+        ari.num_two = 15
+        ari.operation = "%"
+        result = ari.get_answer()
+        expected_output = 0
+        self.assertEqual(result, expected_output)
