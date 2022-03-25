@@ -75,3 +75,13 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         result = ari.get_answer()
         expected_output = 8
         self.assertLess(result, expected_output)
+
+    def test_100_modulus_random_1_to_4_should_less_than_4(self):
+        ari = Arithmetic()
+        ari.num_one = 100
+        list_num_two = [int(x) for x in range(1,5)]
+        ari.num_two = random.choice(list_num_two)
+        ari.operation = "%"
+        result = ari.get_answer()
+        expected_output = 4
+        self.assertLess(result, expected_output)
