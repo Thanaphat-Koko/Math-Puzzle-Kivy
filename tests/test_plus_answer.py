@@ -12,3 +12,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 2
             self.assertEqual(result, expected_output)
+    
+    def test_0_plus_0_is_0(self):
+            ari = Arithmetic()
+            ari.num_one = 0
+            ari.num_two = 0
+            ari.operation = "+"
+            result = ari.get_answer()
+            expected_output = 0
+            self.assertEqual(result, expected_output)
