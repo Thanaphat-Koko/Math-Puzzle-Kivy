@@ -75,3 +75,14 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 29
             self.assertEqual(result, expected_output)
+
+    def test_8_plus_19_is_27(self):
+            ari = Arithmetic()
+            ari.num_one = 8
+            ari.num_two = 19
+            ari.operation = "+"
+            result = ari.get_answer()
+            expected_output = 27
+            self.assertEqual(result, expected_output)
+
+    
