@@ -66,3 +66,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         result = ari.get_answer()
         expected_output = -3
         self.assertEqual(result, expected_output)
+
+    def test_40_modulus_8_should_less_than_8(self):
+        ari = Arithmetic()
+        ari.num_one = 40
+        ari.num_two = 8
+        ari.operation = "%"
+        result = ari.get_answer()
+        expected_output = 8
+        self.assertLess(result, expected_output)
