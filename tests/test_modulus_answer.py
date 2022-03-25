@@ -30,3 +30,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         result = ari.get_answer()
         expected_output = 0
         self.assertEqual(result, expected_output)
+
+    def test_0_modulus_5_is_0(self):
+        ari = Arithmetic()
+        ari.num_one = 0
+        ari.num_two = 5
+        ari.operation = "%"
+        result = ari.get_answer()
+        expected_output = 0
+        self.assertEqual(result, expected_output)
