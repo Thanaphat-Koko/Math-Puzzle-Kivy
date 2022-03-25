@@ -85,3 +85,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         result = ari.get_answer()
         expected_output = 4
         self.assertLess(result, expected_output)
+
+    def test_5_modulus_0_is_error(self):
+        ari = Arithmetic()
+        ari.num_one = 5
+        ari.num_two = 0
+        ari.operation = "%"
+        with self.assertRaises(Exception) as result:
+            ari.get_answer()
+        self.assertEqual("integer division or modulo by zero", str(result.exception))
