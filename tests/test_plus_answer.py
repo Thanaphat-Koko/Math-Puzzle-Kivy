@@ -30,3 +30,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
             result = ari.get_answer()
             expected_output = 48
             self.assertEqual(result, expected_output)
+
+    def test_24_plus_0_is_24(self):
+            ari = Arithmetic()
+            ari.num_one = 24
+            ari.num_two = 0
+            ari.operation = "+"
+            result = ari.get_answer()
+            expected_output = 24
+            self.assertEqual(result, expected_output)
