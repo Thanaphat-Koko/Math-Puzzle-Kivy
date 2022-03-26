@@ -10,7 +10,14 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         ari = Arithmetic(min_num=0, max_num=10)
         ari.get_multiplication_question()
         result = ari.get_answer()
-        expected_result = [int(x) for x in range(100)]  #! 0 -> 100
+        expected_result = [int(x) for x in range(100)] 
+        self.assertIn(result, expected_result)
+
+    def test_random_addition_0_to_20_must_be_in_0_to_40(self):
+        ari = Arithmetic(min_num=0, max_num=20)
+        ari.get_addition_question()
+        result = ari.get_answer()
+        expected_result = [int(x) for x in range(40)]  
         self.assertIn(result, expected_result)
 
 
