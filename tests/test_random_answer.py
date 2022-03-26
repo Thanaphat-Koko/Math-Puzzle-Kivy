@@ -34,4 +34,12 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         expected_result = [int(x) for x in range(101)]  
         self.assertIn(result, expected_result)
 
+    def test_random_modulus_0_to_20_must_be_in_0_to_10(self):
+        ari = Arithmetic(min_num=0, max_num=20)
+        ari.get_modulus_question()
+        result = ari.get_answer()
+        expected_result = [int(x) for x in range(10)]  
+        self.assertIn(result, expected_result)
+
+
 
