@@ -69,4 +69,10 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         expected_result = [int(x) for x in range(0, 10, -1)] 
         self.assertNotIn(result, expected_result)
 
+    def test_random_modulus_0_to_10_not_in_10_to_20(self):
+        ari = Arithmetic(min_num=0, max_num=10)
+        ari.get_modulus_question()
+        result = ari.get_answer()
+        expected_result = [int(x) for x in range(10,21)] 
+        self.assertNotEqual(result, expected_result)
 
