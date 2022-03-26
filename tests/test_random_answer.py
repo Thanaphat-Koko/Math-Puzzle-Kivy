@@ -10,28 +10,28 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         ari = Arithmetic(min_num=0, max_num=10)
         ari.get_multiplication_question()
         result = ari.get_answer()
-        expected_result = [int(x) for x in range(100)] 
+        expected_result = [int(x) for x in range(101)] 
         self.assertIn(result, expected_result)
 
     def test_random_addition_0_to_20_must_be_in_0_to_40(self):
         ari = Arithmetic(min_num=0, max_num=20)
         ari.get_addition_question()
         result = ari.get_answer()
-        expected_result = [int(x) for x in range(40)]  
+        expected_result = [int(x) for x in range(41)]  
         self.assertIn(result, expected_result)
 
     def test_random_subtraction_0_to_50_must_be_in_0_to_50(self):
         ari = Arithmetic(min_num=0, max_num=50)
         ari.get_subtraction_question()
         result = ari.get_answer()
-        expected_result = [int(x) for x in range(50)]  
+        expected_result = [int(x) for x in range(51)]  
         self.assertIn(result, expected_result)
 
     def test_random_division_0_to_100_must_be_in_0_to_100(self):
         ari = Arithmetic(min_num=0, max_num=100)
         ari.get_subtraction_question()
         result = ari.get_answer()
-        expected_result = [int(x) for x in range(100)]  
+        expected_result = [int(x) for x in range(101)]  
         self.assertIn(result, expected_result)
 
 
