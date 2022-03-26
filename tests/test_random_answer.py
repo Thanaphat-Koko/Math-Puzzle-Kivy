@@ -43,10 +43,16 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
 
     def test_random_addition_0_to_20_not_in_0_to_n10(self):
         ari = Arithmetic(min_num=0, max_num=20)
-        ari.get_modulus_question()
+        ari.get_addition_question()
         result = ari.get_answer()
         expected_result = [int(x) for x in range(0,21,-1)]  
         self.assertNotIn(result, expected_result)
 
+    def test_random_subtraction_0_to_10_not_in_11_to_20(self):
+        ari = Arithmetic(min_num=0, max_num=10)
+        ari.get_subtraction_question()
+        result = ari.get_answer()
+        expected_result = [int(x) for x in range(11,21)]  
+        self.assertNotIn(result, expected_result)
 
 
