@@ -27,4 +27,11 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         expected_result = [int(x) for x in range(50)]  
         self.assertIn(result, expected_result)
 
+    def test_random_division_0_to_100_must_be_in_0_to_100(self):
+        ari = Arithmetic(min_num=0, max_num=100)
+        ari.get_subtraction_question()
+        result = ari.get_answer()
+        expected_result = [int(x) for x in range(100)]  
+        self.assertIn(result, expected_result)
+
 
