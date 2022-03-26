@@ -20,4 +20,11 @@ class Arithmetic_GetAnswerTest(unittest.TestCase):
         expected_result = [int(x) for x in range(40)]  
         self.assertIn(result, expected_result)
 
+    def test_random_subtraction_0_to_50_must_be_in_0_to_50(self):
+        ari = Arithmetic(min_num=0, max_num=50)
+        ari.get_subtraction_question()
+        result = ari.get_answer()
+        expected_result = [int(x) for x in range(50)]  
+        self.assertIn(result, expected_result)
+
 
