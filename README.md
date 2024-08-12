@@ -1,10 +1,10 @@
-# สิ่งที่ต้องลงก่อนทำโปรเจค
+# Math Puzzle Kivy
+เกมแก้ปัญหาทางคณิตศาสตร์ พัฒนาโดยใช้ Kivy
 
-* python -m venv venv
-* venv\Scripts\activate 
-* pip install -r requirements.txt
+# Slide Presentation
+https://drive.google.com/file/d/11IyivZME7JlSXQasweeCUqWFKnHoWtaJ/view?usp=sharing
 
-# โค้ดสำหรับ Testing 
+# คลิปวีดีโอสาธิตการเล่น
+https://drive.google.com/file/d/1_SLLUAfZglRbz7yxrF7nHTrO1LpXhzQg/view
 
-* py -m unittest -v tests/test_get_answer.py
-* py -m nose2 -v --with-coverage
+![MathPuzzle](https://github.com/user-attachments/assets/1298816e-6841-4897-b615-76b9d3980a05)
